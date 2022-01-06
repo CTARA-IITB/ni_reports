@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'cnns.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'area_en',
+        'NAME': 'reports_wagtail',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
