@@ -66,13 +66,13 @@ def presentations(request):
 def stateAndDistrict (request):
 
     selected_state_value='India'
-    india=AreaEn.objects.values('area_id','area_name').filter(area_parent_id=-1)
-    states=AreaEn.objects.values('area_id','area_name','area_id').filter(area_parent_id=1).order_by('area_name')
+    india=AreaEn.objects.values('area_id','area_name','area_code').filter(area_parent_id=-1)
+    states=AreaEn.objects.values('area_id','area_name','area_code').filter(area_parent_id=1).order_by('area_name')
 
     for i in range(len(states)):
-        states[i]['area_id'] = '/static_files/stateAndDistrict/NutritionInfo_' + str(states[i]['area_id'])+ '_' + states[i]['area_name'] + '.pdf'
+        states[i]['area_code'] = '/static_files/stateAndDistrict/NutritionInfo_' + str(states[i]['area_code'])+ '_' + states[i]['area_name'] + '.pdf'
     for i in range(len(india)):
-        india[i]['area_id']= '/static_files/stateAndDistrict/NutritionInfo_' + str(india[i]['area_id'])+ '_' + india[i]['area_name'] + '.pdf'
+        india[i]['area_code']= '/static_files/stateAndDistrict/NutritionInfo_' + str(india[i]['area_code'])+ '_' + india[i]['area_name'] + '.pdf'
 
     if request.method == 'POST':
 
@@ -84,9 +84,9 @@ def stateAndDistrict (request):
         if selected_state_value!='India':
             areaId=AreaEn.objects.values('area_id').filter(area_name=selected_state_value).first()
             id=areaId['area_id']
-            district=AreaEn.objects.values('area_id','area_name').filter(area_parent_id=id).order_by('area_name')
+            district=AreaEn.objects.values('area_code','area_name').filter(area_parent_id=id).order_by('area_name')
             for i in range(len(district)):
-                district[i]['area_id']= '/static_files/stateAndDistrict/NutritionInfo_' + str(district[i]['area_id'])+ '_' + district[i]['area_name'] + '.pdf'
+                district[i]['area_code']= '/static_files/stateAndDistrict/NutritionInfo_' + str(district[i]['area_code'])+ '_' + district[i]['area_name'] + '.pdf'
             return render(request,'stateAndDistrict.html',{'states':states,'india':india,'district':district,'selected_state_value':selected_state_value})
         else :
             return render(request,'stateAndDistrict.html',{'states':states,'india':india,'selected_state_value':selected_state_value})
