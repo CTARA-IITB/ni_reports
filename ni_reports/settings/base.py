@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import pymysql  
+pymysql.install_as_MySQLdb()
+
 from decouple import config
 
 if os.name == 'nt':
