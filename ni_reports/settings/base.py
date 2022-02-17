@@ -203,5 +203,6 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'
+BASE_URL = 'https://example.com'
 WAGTAILIMAGES_MAX_UPLOAD_SIZE = 100 * 1024 * 1024   # 15mb
+FILE_UPLOAD_TEMP_DIR = os.path.join(PROJECT_DIR, 'tmp')
