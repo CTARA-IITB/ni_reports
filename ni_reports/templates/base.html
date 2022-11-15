@@ -95,7 +95,7 @@
                             {% for item in menu.menu_items.all %}
                                 {% if item.title == "CATEGORIES" %}
                                     <li style="font-weight: bold;"><a href="">{{item.title}}</a></li>
-                                {% elif item.title == "CNNS" or item.title == "NFHS" or item.title == "NutritionINDIA.info" %}
+                                {% elif item.title == "CNNS" or item.title == "NFHS" or item.title == "NutritionINDIA.info" or item.title == "SRS"%}
                                     <li style="background-color: rgb(69,69,69);" ><a>{{item.title}}</a></li>
                                 {% elif item.title == "CNNS FACTSHEETS" %}
                                     <li><a href="{% url 'factsheets' %}" >CNNS FACTSHEETS</a></li>
