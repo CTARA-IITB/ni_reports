@@ -18,6 +18,7 @@ urlpatterns = [
     path('factsheets',views.factsheets,name='factsheets'),
     path('presentations',views.presentations,name='presentations'),
     path('stateAndDistrict',views.stateAndDistrict,name='stateAndDistrict'),
+    path('rootCauseAnalysis',views.rootCauseAnalysis,name='rootCauseAnalysis'),
     path('nfhsfactsheets',views.nfhsfactsheets,name='nfhsfactsheets'),
 
 ]

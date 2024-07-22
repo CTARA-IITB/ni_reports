@@ -1,0 +1,138 @@
+{% extends 'base_menuless.html' %}
+{% load static %}
+{% block content %}
+
+        <div id="page" class="container">
+	        <div id="main">
+		        <div id="featured">
+			        <div class="title">
+                  <h2>State And District Nutrition Factsheets and Root Cause Analysis</h2>
+                  <span class="byline">(To download District factsheet, select State, press VIEW and click District)</span>
+              </div>
+              <form action="rootCauseAnalysis" method="post" name="formid" onsubmit="return true">
+                <div style="border: 1px solid black; border-radius: 10px; padding: 10px;">
+                  {% csrf_token %}
+                  <select name="selected_state" id="state" style="width: 250px; background-color: white; border: 1px solid black; border-radius: 5px; height: 40px;"  alt="India State wise NFHS-5 Reports">
+
+                    <option disabled="true" > --select country/state--</option>
+
+                    {% if "India" ==  selected_state_value %}
+                    <option value="India" selected> India</option>
+                    {% else %}
+                    <option value="India"> India</option>
+                    {%endif%}
+                    
+                    {% for s in states %}
+                    {% if s.area_name ==  selected_state_value %}
+                    <option value="{{s.area_name}}" selected> {{s.area_name}}</option>
+                    {% else %}
+                    <option value="{{s.area_name}}"> {{s.area_name}}</option>
+                    {%endif%}
+                    {% endfor %}
+                  </select>
+                  <button type="submit" name="submit" style="width: 100px; background-color: rgba(255, 162, 70, 1); color: white;"><i class="fa fa-search"></i>  View</button> 
+                </div>
+              </form>  
+
+              <div class="row">
+                <div class="col-3" style="">
+            {% if selected_state_value == "India"%}
+                <ul class="style1 stateAndDistrict" > 
+                  {% for i in india %}
+                    <li>
+                      <a href="{{i.area_code}}" target="_blank"  alt="India State wise NFHS-5 Reports">{{ i.area_name}}</a> 
+                    </li>
+                  {% endfor %}
+                  {% for s in states %}
+                    <li>
+                      <a href="{{s.area_code}}" target="_blank"  alt="India State wise NFHS-5 Reports">{{ s.area_name}}</a>
+                    </li>
+                  {% endfor %}  
+                </ul>
+              {% else %}
+                <ul class="style1 stateAndDistrict" > 
+                  {% for d in district %}
+                    <li>
+                      <a href="{{d.area_code}}" target="_blank"  alt="India State wise NFHS-5 Reports">{{ d.area_name}}</a> 
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif%}  
+                </div>
+                <div class="col-9" >
+                      
+
+                      <div class="container">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-4 col-xs-6 thumb">
+                                    <a class="thumbnail" href="#" data-image-id="1" data-toggle="modal" data-title=""
+                                       data-image="{%static 'images/rootcause/1.png'%}"
+                                       data-target="#image-gallery">
+                                        <img class="img-thumbnail"
+                                             src="{%static 'images/rootcause/1.png'%}"
+                                             alt="Another alt text">
+                                    </a>
+                                </div>
+         
+                                <div class="col-lg-6 col-md-4 col-xs-6 thumb">
+                                    <a class="thumbnail" href="#" data-image-id="2" data-toggle="modal" data-title=""
+                                       data-image="{%static 'images/rootcause/2.png'%}"
+                                       data-target="#image-gallery">
+                                        <img class="img-thumbnail"
+                                             src="{%static 'images/rootcause/2.png'%}"
+                                             alt="Another alt text">
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-6 col-md-4 col-xs-6 thumb">
+                                    <a class="thumbnail" href="#" data-image-id="3" data-toggle="modal" data-title=""
+                                       data-image="{%static 'images/rootcause/3.png'%}"
+                                       data-target="#image-gallery">
+                                        <img class="img-thumbnail"
+                                             src="{%static 'images/rootcause/3.png'%}"
+                                             alt="Another alt text">
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-6 col-md-4 col-xs-6 thumb">
+                                    <a class="thumbnail" href="#" data-image-id="4" data-toggle="modal" data-title=""
+                                       data-image="{%static 'images/rootcause/4.png'%}"
+                                       data-target="#image-gallery">
+                                        <img class="img-thumbnail"
+                                             src="{%static 'images/rootcause/4.png'%}"
+                                             alt="Another alt text">
+                                    </a>
+                                </div>
+                    
+                    
+                            <!-- <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="image-gallery-title"></h4>
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                                            </button>
+                    
+                                            <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+		        </div>
+	        </div>
+        </div>     
+{% endblock %}
