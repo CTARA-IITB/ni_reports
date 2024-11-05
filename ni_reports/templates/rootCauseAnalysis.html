@@ -44,9 +44,15 @@
                     </li>
                   {% endfor %}
                   {% for s in states %}
+                    {% if s.area_name == "Maharashtra"%}
+                    <li>
+                      <a href="{{s.area_code}}" target="_blank" style="font-weight: bold;" alt="India State wise NFHS-5 Reports">{{ s.area_name}}</a>
+                    </li>
+                   {% else %}
                     <li>
                       <a href="{{s.area_code}}" target="_blank"  alt="India State wise NFHS-5 Reports">{{ s.area_name}}</a>
                     </li>
+                    {% endif %}
                   {% endfor %}  
                 </ul>
               {% else %}
@@ -70,7 +76,7 @@
                                        data-image="{%static 'images/rootcause/1.png'%}"
                                        data-target="#image-gallery">
                                         <img class="img-thumbnail"
-                                             src="{%static 'images/rootcause/1.png'%}"
+                                             src="{%static 'images/rootcause/1v2.png'%}"
                                              alt="Another alt text">
                                     </a>
                                 </div>
@@ -80,7 +86,7 @@
                                        data-image="{%static 'images/rootcause/2.png'%}"
                                        data-target="#image-gallery">
                                         <img class="img-thumbnail"
-                                             src="{%static 'images/rootcause/2.png'%}"
+                                             src="{%static 'images/rootcause/2v2.png'%}"
                                              alt="Another alt text">
                                     </a>
                                 </div>
@@ -90,7 +96,7 @@
                                        data-image="{%static 'images/rootcause/3.png'%}"
                                        data-target="#image-gallery">
                                         <img class="img-thumbnail"
-                                             src="{%static 'images/rootcause/3.png'%}"
+                                             src="{%static 'images/rootcause/3v2.png'%}"
                                              alt="Another alt text">
                                     </a>
                                 </div>
@@ -100,7 +106,7 @@
                                        data-image="{%static 'images/rootcause/4.png'%}"
                                        data-target="#image-gallery">
                                         <img class="img-thumbnail"
-                                             src="{%static 'images/rootcause/4.png'%}"
+                                             src="{%static 'images/rootcause/4v2.png'%}"
                                              alt="Another alt text">
                                     </a>
                                 </div>
