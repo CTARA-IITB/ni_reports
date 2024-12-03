@@ -94,7 +94,7 @@
                         <ul class="press" id="sideMenu">
                             {% for item in menu.menu_items.all %}
                                 {% if item.title == "CATEGORIES" %}
-                                    <li style="background-color: rgb(69,69,69); font-weight: bold;  display: flex; justify-content: center; align-items: center; height: 5vh; "><a href="">{{item.title}}</a></li>
+                                    <li style="background-color: #D66D07; font-weight: bold;  display: flex; justify-content: center; align-items: center; height: 5vh; "><a href="">{{item.title}}</a></li>
                                 {% elif item.title == "CNNS" or item.title == "NFHS" or item.title == "NutritionINDIA.info" or item.title == "SRS"%}
                                     <li style="background-color: rgb(69,69,69); display: flex; justify-content: center; align-items: center; height: 5vh;" ><a>{{item.title}}</a></li>
                                 {% elif item.title == "CNNS FACTSHEETS" %}
