@@ -114,7 +114,7 @@ WSGI_APPLICATION = 'ni_reports.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': config('ENGINE'),
-        'NAME': config('NAME'),
+        'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('PASSWORD'),
         'HOST': config('HOST'),
